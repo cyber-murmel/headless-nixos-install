@@ -4,7 +4,7 @@
     authProtocols = [ "WPA-EAP" ];
     auth = ''
       eap=TTLS
-      domain="radius.example.tld"
+      domain_match="radius.example.tld"
       identity="foo"
       password="bar"
       phase2="auth=PAP"
