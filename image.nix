@@ -1,11 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [
-    <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
-    <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
-  ];
-
   # prevent some display drivers from crashing
   boot.kernelParams = [ "nomodeset" ];
 
