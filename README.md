@@ -2,8 +2,9 @@
 
 ## Building the image
 1. Change the public SSH key in [authorizedKeys.nix](authorizedKeys.nix).
-2. Build the image.
-```
+2. Change the wireless networks in [wireless-networks.nix](wireless-networks.nix).
+3. Build and burn the image.
+```shell
 nix-build
 ```
 
@@ -78,15 +79,13 @@ sudo mount /dev/disk/by-partlabel/ESP /mnt/boot
 #### Generate initial configuration files
 ```shell
 sudo nixos-generate-config --root /mnt
-# Inspect files
+# inspect files
 cat /mnt/etc/nixos/hardware-configuration.nix
 cat /mnt/etc/nixos/configuration.nix
 ```
 
 #### Edit configuration
 Edit the configuration to your requirements.
-Optionally you can make use of one of these configs:
-- [server-nixos-configuration](https://github.com/cyber-murmel/server-nixos-configuration)
 
 If you configuration makes use of [Home Manager](https://github.com/nix-community/home-manager), add the channel.
 
@@ -94,6 +93,11 @@ If you configuration makes use of [Home Manager](https://github.com/nix-communit
 sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz home-manager
 sudo nix-channel --update
 ```
+
+Optionally you can make use of one of these configs:
+- [server-nixos-configuration](https://github.com/cyber-murmel/server-nixos-configuration)
+- [workstation-nixos-configuration](https://github.com/cyber-murmel/workstation-nixos-configuration)
+
 
 #### Run and check installation
 ```shell
