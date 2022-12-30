@@ -11,7 +11,7 @@
 
   # Enable SSH in the boot process.
   services.openssh.enable = true;
-  systemd.services.sshd.wantedBy = pkgs.lib.mkForce [ "multi-user.target" ];
+  systemd.services.sshd.wantedBy = lib.mkForce [ "multi-user.target" ];
 
   # Disable automatic login on the local terminal.
   services.getty.autologinUser = lib.mkForce null;
