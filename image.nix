@@ -6,6 +6,9 @@
     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
   ];
 
+  # prevent some display drivers from crashing
+  boot.kernelParams = [ "nomodeset" ];
+
   # Enable SSH in the boot process.
   services.openssh.enable = true;
   systemd.services.sshd.wantedBy = pkgs.lib.mkForce [ "multi-user.target" ];
