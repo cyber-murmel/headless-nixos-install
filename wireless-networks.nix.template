@@ -1,0 +1,13 @@
+{
+  wpa-psk-ap-name.pskRaw = "b5f1db0653e38c0a30c2a8b99cbb177a07099e52ff69c2f57e819b414c235696";
+  wpa-eap-ap-name = {
+    authProtocols = [ "WPA-EAP" ];
+    auth = ''
+      eap=TTLS
+      domain="radius.example.tld"
+      identity="foo"
+      password="bar"
+      phase2="auth=PAP"
+    '';
+  };
+}

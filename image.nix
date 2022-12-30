@@ -14,7 +14,17 @@
   services.getty.autologinUser = lib.mkForce null;
 
   users.users.nixos = {
-    openssh.authorizedKeys.keys = import ./authorizedKeys.nix;
+    openssh.authorizedKeys.keys = lib.optionals (builtins.pathExists ./authorized-keys.nix)
+      import ./authorized-keys.nix;
+  };
+
+  networking = {
+    wireless = {
+      enable = true;
+      userControlled.enable = true;
+      networks = lib.optionals (builtins.pathExists ./wireless-networks.nix)
+        import ./wireless-networks.nix;
+    };
   };
 
   environment.systemPackages = with pkgs; [
