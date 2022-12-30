@@ -29,6 +29,7 @@
         import ./wireless-networks.nix;
     };
   };
+  systemd.services.wpa_supplicant.wantedBy = lib.mkForce [ "multi-user.target" ];
 
   environment.systemPackages = with pkgs; [
     wget
